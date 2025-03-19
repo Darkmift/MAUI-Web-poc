@@ -1,0 +1,19 @@
+﻿<Window x:Class="DBServiceHost.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DBServiceHost"
+        mc:Ignorable="d"
+        Title="Database Web Service" Height="450" Width="800">
+    <Grid>
+        <Label x:Name="lblTitle"
+Content="Database Server Host"
+HorizontalAlignment="Left"
+Margin="268,76,0,0"
+VerticalAlignment="Top"
+FontSize="24"
+FontWeight="Bold"/>
+        <Button Name ="cmdEnd" Content="End" HorizontalAlignment="Left" Height="52" Margin="321,202,0,0" VerticalAlignment="Top" Width="153" Click="cmdEnd_Click" RenderTransformOrigin="0.347,0.553"/>
+    </Grid>
+</Window>

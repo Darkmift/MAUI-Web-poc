@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "Combined",
+    "Projects": [
+      {
+        "Path": "DBServiceHost\\DBServiceHost.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "SouqMobile\\SouqMobile.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

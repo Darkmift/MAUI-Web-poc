@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SouqMobile.SignupPage"
+             Title="SignupPage">
+    <ScrollView>
+        <StackLayout Padding="30" Spacing="15" VerticalOptions="Center">
+            <Label Text="Sign Up" FontSize="24" HorizontalOptions="Center" />
+            <Entry x:Name="txtName" Placeholder="Name" />
+            <Entry x:Name="txtPhone" Placeholder="Phone" />
+            <Entry x:Name="txtMail" Placeholder="Mail" />
+            <Entry x:Name="txtUsername" Placeholder="Username" />
+            <Entry x:Name="txtPassword" Placeholder="Password" IsPassword="True" />
+            <Entry x:Name="ConfirmtxtPassword" Placeholder="Confirm Password" IsPassword="True" />
+            <Button Text="Sign Up" Clicked="OnSignupButtonClicked" />
+            <Button Text="Cancel" Clicked="OnCancelButtonClicked" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

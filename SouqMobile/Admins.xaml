@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SouqMobile.Admins"
+             Title="Admins">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="30">
+                <!-- Header -->
+                <Grid ColumnDefinitions="*,*" ColumnSpacing="5" HorizontalOptions="Start">
+                    <Button Grid.Column="0" x:Name="btnBack" Text="Back"
+                            Clicked="OnBackClicked"
+                            WidthRequest="75" HeightRequest="35"
+                            MinimumHeightRequest="10" BackgroundColor="Gray"/>
+                    <Button Grid.Column="1" x:Name="btnAdd" Text="Add"
+                            Clicked="OnAddClicked"
+                            WidthRequest="75" HeightRequest="35"
+                            MinimumHeightRequest="10"/>
+                </Grid>
+                <!-- ListView -->
+                <ListView x:Name="lsvData"
+                          ItemsSource="{Binding Admins}" SelectionMode="Single"
+                          ItemSelected="OnItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame BorderColor="LightGray">
+                                    <Grid ColumnSpacing="2" RowSpacing="1">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <StackLayout Grid.Column="0">
+                                            <Label Text="{Binding ID}" FontAttributes="Bold"/>
+                                            <Label Text="{Binding Name}" FontAttributes="Bold"/>
+                                            <Label Text="{Binding Phone}"/>
+                                            <Label Text="{Binding Mail}"/>
+                                        </StackLayout>
+                                    </Grid>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

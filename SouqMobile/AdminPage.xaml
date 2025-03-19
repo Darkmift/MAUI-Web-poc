@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SouqMobile.AdminPage"
+             Title="AdminPage">
+    <ScrollView>
+        <StackLayout Padding="30" Spacing="15" VerticalOptions="Center">
+            <!-- Header -->
+            <StackLayout Padding="10" Spacing="5" Orientation="Horizontal">
+                <Button x:Name="btnBack" Text="Back" Clicked="OnBackClicked"
+WidthRequest="75" HeightRequest="35"
+MinimumHeightRequest="10" BackgroundColor="Gray"/>
+                <Button x:Name="btnEdit" Text="Edit" Clicked="OnEditClicked"
+WidthRequest="75" HeightRequest="35"
+MinimumHeightRequest="10"/>
+                <Button x:Name="btnDelete" Text="Delete" Clicked="OnDeleteClicked"
+WidthRequest="75" HeightRequest="35"
+MinimumHeightRequest="10" BackgroundColor="Red"/>
+            </StackLayout>
+            <Grid Padding="10" ColumnSpacing="2" RowSpacing="1"
+HorizontalOptions="FillAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" x:Name="lblID" Text="ID"
+VerticalOptions="Center" ></Label>
+                <Entry Grid.Row="0" Grid.Column="1" x:Name="txtID"/>
+                <Label Grid.Row="1" Grid.Column="0" x:Name="lblName" Text="Name"
+VerticalOptions="Center" ></Label>
+                <Entry Grid.Row="1" Grid.Column="1" x:Name="txtName"/>
+                <Label Grid.Row="5" Grid.Column="0" x:Name="lblPhone" Text="Phone"
+VerticalOptions="Center" ></Label>
+                <Entry Grid.Row="5" Grid.Column="1" x:Name="txtPhone"/>
+                <Label Grid.Row="6" Grid.Column="0" x:Name="lblMain" Text="Mail"
+VerticalOptions="Center" ></Label>
+                <Entry Grid.Row="6" Grid.Column="1" x:Name="txtMail"/>
+                <Label Grid.Row="7" Grid.Column="0" x:Name="lblUsername" Text="Username"
+VerticalOptions="Center" ></Label>
+                <Entry Grid.Row="7" Grid.Column="1" x:Name="txtUsername"/>
+                <Label Grid.Row="8" Grid.Column="0" x:Name="lblPassword" Text="Password"
+VerticalOptions="Center" ></Label>
+                <Entry Grid.Row="8" Grid.Column="1" x:Name="txtPassword"
+IsPassword="True" />
+                <StackLayout Grid.Row="9" Grid.Column="1" Orientation="Horizontal"
+Padding="20" Spacing="10">
+                    <Button x:Name="btnOK" Text="OK" Clicked="OnOkClicked"
+WidthRequest="75" HeightRequest="35"
+MinimumHeightRequest="10"/>
+                    <Button x:Name="btnCancel" Text="Cancel" Clicked="OnCancelClicked"
+WidthRequest="75" HeightRequest="35"
+MinimumHeightRequest="10" BackgroundColor="Gray" />
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

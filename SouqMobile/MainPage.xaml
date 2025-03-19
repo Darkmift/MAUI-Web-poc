@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SouqMobile.MainPage">
+
+    <ScrollView>
+        <StackLayout Padding="30" Spacing="5">
+            <Label x:Name="lblName" Text="Welcome to the Souq"
+                   FontSize="24" HorizontalOptions="Start" />
+            <Button x:Name="btnAdmins" Text="Admins"
+                    Clicked="OnAdminsClicked"
+                    WidthRequest="100" HorizontalOptions="Start"/>
+            <Button x:Name="btnUsers" Text="Users"
+                    Clicked="OnUsersClicked"
+                    WidthRequest="100" HorizontalOptions="Start"/>
+            <Button x:Name="btnProfile" Text="Profile"
+                    Clicked="OnProfileClicked"
+                    WidthRequest="100" HorizontalOptions="Start"/>
+            <Button x:Name="btnPassword" Text="Change Password"
+                    Clicked="OnPasswordClicked"
+                    WidthRequest="100" HorizontalOptions="Start"/>
+            <Button x:Name="btnCountries" Text="Countries"
+                    Clicked="OnCountriesClicked"
+                    WidthRequest="100" HorizontalOptions="Start"/>
+            <Button x:Name="btnCategories" Text="Categories"
+                    Clicked="OnCategoriesClicked"
+                    WidthRequest="100" HorizontalOptions="Start"/>
+            <Button x:Name="btnProducts" Text="Products"
+                    Clicked="OnProductsClicked"
+                    WidthRequest="100" HorizontalOptions="Start"/>
+            <Button x:Name="btnOrders" Text="Orders"
+                    Clicked="OnOrdersClicked"
+                    WidthRequest="100" HorizontalOptions="Start"/>
+            <Button x:Name="btnReports" Text="Reports"
+                    Clicked="OnReportsClicked"
+                    WidthRequest="100" HorizontalOptions="Start"/>
+            <Button x:Name="btnExit" Text="Logout"
+                    Clicked="OnExitClicked"
+                    WidthRequest="100" HorizontalOptions="Start"/>
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>
