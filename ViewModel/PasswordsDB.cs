@@ -20,7 +20,7 @@ namespace ViewModel
         {
             SQLInsert = "Insert Into Passwords " +
                          "(pUsername, pPassword, pType) " +
-                         "Values (@Username, @Password, @Type,) ";
+                         "Values (@Username, @Password, @Type) ";
 
             SQLUpdate = "Update Passwords Set " +
                                     "pPassword = @Password, " +
@@ -55,6 +55,7 @@ namespace ViewModel
             if (Oper == DB.doInsert ||
                 Oper == DB.doUpdate)
             {
+                DB.ParameterAdd("@Username", password.Username.ToString());
                 DB.ParameterAdd("@Password", password.Password);
                 DB.ParameterAdd("@Type", password.Type);
             }

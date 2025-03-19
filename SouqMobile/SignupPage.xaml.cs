@@ -16,58 +16,42 @@ public partial class SignupPage : ContentPage
     }
     private async void OnSignupButtonClicked(object sender, EventArgs e)
     {
-        try
+        //Check Valid Values
+        if (!IsValidValues()) return;
+        //check if username exists in Passwords
+        if (await server.PasswordsSelectAsync(txtUsername.Text) != null)
         {
-            //Check Valid Values
-            if (!IsValidValues()) return;
-            
-            //check if username exists in Passwords
-            if (await server.PasswordsSelectAsync(txtUsername.Text) != null)
-            {
-                await DisplayAlert("Error", General.ERR_EXIST_Password, "Try Again");
-                return;
-            }
-
-            //Insert user to Users
-            UsersRec user = new UsersRec();
-            // Don't set ID - let the database handle it
-            user.Name = txtName.Text;
-            user.Phone = txtPhone.Text;
-            user.Mail = txtMail.Text;
-            user.Username = txtUsername.Text;
-
-            PasswordsRec password = new PasswordsRec();
-            password.Username = txtUsername.Text;
-            password.Password = txtPassword.Text;
-            password.Type = await server.UserTypeAsync();
-
-            UserLogged userLogged = await server.UsersInsertWithPasswordAsync(user, password);
-            
-            if (userLogged == null)
-            {
-                await DisplayAlert("Error", "Failed to create user account. Please try again.", "OK");
-                return;
-            }
-
-            General.session = new Session();
-            General.session.Username = txtUsername.Text;
-            General.session.Password = txtPassword.Text;
-            General.session.Type = userLogged.Type;
-            General.session.ID = userLogged.ID;
-            General.session.Name = userLogged.Name;  // Fixed: Changed Type to Name
-            General.session.AdminType = await server.AdminTypeAsync();
-            General.session.UserType = await server.UserTypeAsync();
-            General.session.doSelect = await server.doSelectAsync();
-            General.session.doInsert = await server.doInsertAsync();
-            General.session.doUpdate = await server.doUpdateAsync();
-            General.session.doDelete = await server.doDeleteAsync();
-
-            await Navigation.PushAsync(new MainPage());
+            await DisplayAlert("Error", General.ERR_EXIST_Password, "Try Again");
+            return;
         }
-        catch (Exception ex)
-        {
-            await DisplayAlert("Error", $"An error occurred during signup: {ex.Message}", "OK");
-        }
+        //Insert user to Users
+        UsersRec user = new UsersRec();
+        user.ID = 0;
+        user.Name = txtName.Text;
+        user.Phone = txtPhone.Text;
+        user.Mail = txtMail.Text;
+        user.Username = txtUsername.Text;
+        PasswordsRec password = new PasswordsRec();
+        password.Username = txtUsername.Text;
+        password.Password = txtPassword.Text;
+        password.Type = await server.UserTypeAsync();
+        UserLogged userLogged = await server.UsersInsertWithPasswordAsync(user, password)
+        ;
+        if (userLogged == null)
+            return;
+        General.session = new Session();
+        General.session.Username = txtUsername.Text;
+        General.session.Password = txtPassword.Text;
+        General.session.Type = userLogged.Type;
+        General.session.ID = userLogged.ID;
+        General.session.Type = userLogged.Name;
+        General.session.AdminType = await server.AdminTypeAsync();
+        General.session.UserType = await server.UserTypeAsync();
+        General.session.doSelect = await server.doSelectAsync();
+        General.session.doInsert = await server.doInsertAsync();
+        General.session.doUpdate = await server.doUpdateAsync();
+        General.session.doDelete = await server.doDeleteAsync();
+        await Navigation.PushAsync(new MainPage());
     }
     private bool IsValidValues()
     {
